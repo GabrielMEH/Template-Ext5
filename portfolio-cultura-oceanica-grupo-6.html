@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resenha de Cultura Oceânica — Portfólio</title>
+  <title>Cultura Oceânica: Resenha — Portfólio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap"
@@ -429,8 +429,9 @@
 
     .desc-visual {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 0.5rem;
+      justify-items: center;
     }
 
     .img-placeholder {
@@ -443,10 +444,11 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem 1rem;
-      aspect-ratio: 4/3;
+      padding: 1.5rem;
+      width: min(540px, 100%);
       transition: all 0.3s;
       cursor: pointer;
+      margin: 0 auto;
     }
 
     .img-placeholder:hover {
@@ -457,8 +459,8 @@
 
     .img-placeholder img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       display: block;
     }
 
@@ -542,19 +544,19 @@
     }
 
     .ods-14 {
-      background: #0077b6;
+      background: #3da2ab;
     }
 
     .ods-4 {
-      background: #c31f33;
+      background: #ff9900;
     }
 
     .ods-9 {
-      background: #3f7e44;
+      background: #03BCD6;
     }
 
     .ods-17 {
-      background: #19486a;
+      background: #3A88BA;
     }
 
     /* ── BNCC ── */
@@ -662,19 +664,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 1.5rem;
+      padding: 1rem;
       text-align: center;
       transition: all 0.3s;
       cursor: pointer;
-      min-height: 180px;
+      height: 220px;
     }
 
-    .masonry-item:nth-child(2n) {
-      min-height: 240px;
-    }
-
-    .masonry-item:nth-child(3n) {
-      min-height: 200px;
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .masonry-item:hover {
@@ -937,7 +938,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow fade-up">Portfólio Educacional · 2025</p>
       <h1 class="fade-up delay-1">
-        Resenha de<br /><em>Cultura</em><br />Oceânica
+        Cultura Oceânica:<br /><em>Resenha</em><br />
       </h1>
       <p class="hero-desc fade-up delay-2">
         Uma análise crítica criada com Inteligência Artificial para educar,
@@ -964,7 +965,7 @@
     <div class="objetivo-grid">
       <div class="objetivo-text">
         <p class="section-label">01 — Objetivo</p>
-        <h2 class="section-title">Por que criamos esta resenha?</h2>
+        <h2 class="section-title">Objetivo do Projeto</h2>
         <p>
           Este trabalho tem como objetivo aplicar os princípios da
           <strong>cultura oceânica</strong> na produção de resenhas críticas,
@@ -975,7 +976,7 @@
           forma organizada.
         </p>
         <p>
-          Paralelamente, busca-se desenvolver habilidades de
+          Paralelamente, buscou-se desenvolver habilidades de
           <strong>pensamento crítico</strong> e comunicação escrita,
           incentivando a construção de posicionamentos fundamentados sobre a
           relação entre sociedade e ambiente marinho. O projeto também promove
@@ -987,7 +988,7 @@
         </p>
       </div>
       <div class="objetivo-card">
-        <h3>🎯 Meta Central da Resenha</h3>
+        <h3>🎯 Meta Central do Projeto</h3>
         <p>
           Define-se como meta do projeto a evidência de domínio progressivo do
           gênero resenha pelos estudantes, observada na capacidade de
@@ -1045,11 +1046,8 @@
         </ul>
       </div>
       <div class="desc-visual">
-        <div class="img-placeholder tall">
-          <img src="assets/cartaz.jpg" alt="Cartaz do projeto" />
-        </div>
-        <div class="img-placeholder tall">
-          <img src="assets/resenha_exemplo.jpg" alt="Resenha exemplo" />
+        <div class="img-placeholder">
+          <img src="images/qr.png" alt="QR do projeto" />
         </div>
       </div>
     </div>
@@ -1181,7 +1179,7 @@
   <section id="galeria">
     <div class="galeria-intro">
       <p class="section-label">05 — Galeria</p>
-      <h2 class="section-title">Imagens da Resenha</h2>
+      <h2 class="section-title">Conteúdo do projeto</h2>
       <p>
         Registros das etapas de criação, resenhas produzidas e momentos de
         apresentação.
@@ -1189,14 +1187,10 @@
     </div>
     <div class="masonry">
       <div class="masonry-item">
-        <div class="ph-icon">🎨</div>
-        <p>
-          Capa da resenha produzida<br /><small>Substitua por imagem real</small>
-        </p>
+        <img src="images/cartaz.jpg" alt="Cartaz do projeto" />
       </div>
       <div class="masonry-item">
-        <div class="ph-icon">👩‍🎓</div>
-        <p>Alunos em atividade<br /><small>Foto da turma</small></p>
+        <img src="images/resenha_exemplo.jpg" alt="Resenha exemplo" />
       </div>
       <div class="masonry-item">
         <div class="ph-icon">🌊</div>
@@ -1250,18 +1244,17 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
-      Resenha de Cultura Oceânica
+      Cultura Oceânica:Resenha
       <span>Portfólio Educacional · Resenha com IA · 2025</span>
     </div>
     <div class="footer-tags">
-      <span class="tag">ODS 14</span>
-      <span class="tag">ODS 4</span>
-      <span class="tag">BNCC</span>
-      <span class="tag">IA Educacional</span>
-      <span class="tag">Cultura Oceânica</span>
+      <a href="https://www.linkedin.com/in/gabriel-pereira-703006391" target="_blank"><span class="tag">Gabriel Pereira</span></a>
+      <a href="www.linkedin.com/in/allan-vitor-0563a1335" target="_blank"><span class="tag">Allan Vitor</span></a>
+      <a href="#" target="_blank"><span class="tag">Daniel Cardoso</span></a>
+      <a href="https://www.linkedin.com/in/lucas-tirado-3b9041338/" target="_blank"><span class="tag">Lucas Tirado</span></a>
     </div>
     <p class="footer-note">
-      Template · Substitua com os dados reais da sua resenha
+      IFSP SJBV · 2025 · Todos os direitos reservados
     </p>
   </footer>
 </body>

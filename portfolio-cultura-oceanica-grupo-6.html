@@ -833,6 +833,131 @@
       color: rgba(255, 255, 255, 0.3);
     }
 
+    /* ── IMAGE MODAL (CAROUSEL) ── */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 35, 66, 0.95);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+
+    .modal-content {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+      user-select: none;
+    }
+
+    @keyframes imageTransition {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--white);
+      font-size: 28px;
+      line-height: 1;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      z-index: 1001;
+    }
+
+    .modal-close:hover {
+      background: var(--ocean-teal);
+      transform: scale(1.1);
+    }
+
+    .modal-prev,
+    .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      user-select: none;
+    }
+
+    .modal-prev {
+      left: 20px;
+    }
+
+    .modal-next {
+      right: 20px;
+    }
+
+    .modal-prev:hover,
+    .modal-next:hover {
+      background-color: var(--ocean-teal);
+      color: var(--ocean-deep);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    #modal-caption {
+      margin-top: 15px;
+      color: var(--white);
+      font-size: 0.95rem;
+      text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
     /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 0;
@@ -936,7 +1061,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow fade-up">Portfólio Educacional · 2025</p>
+      <p class="hero-eyebrow fade-up">Portfólio Educacional · 2026</p>
       <h1 class="fade-up delay-1">
         Cultura Oceânica:<br /><em>Resenha</em><br />
       </h1>
@@ -1193,12 +1318,10 @@
         <img src="images/resenha_exemplo.jpg" alt="Resenha exemplo" />
       </div>
       <div class="masonry-item">
-        <div class="ph-icon">🌊</div>
-        <p>Análise oceânica<br /><small>Resenha gerada com IA</small></p>
+        <img src="images/qr.png" alt="QR Code dos slides" />
       </div>
       <div class="masonry-item">
-        <div class="ph-icon">🖥️</div>
-        <p>Processo de criação<br /><small>Uso da ferramenta de IA</small></p>
+        <img src="images/resenha.jpeg" alt="Logo do projeto" />
       </div>
       <div class="masonry-item">
         <div class="ph-icon">📚</div>
@@ -1244,8 +1367,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
-      Cultura Oceânica:Resenha
-      <span>Portfólio Educacional · Resenha com IA · 2025</span>
+        Cultura Oceânica: Resenhas
+        <span>Projeto de Extensão — IFSP-SJBV SBVEXT5 · 2026</span>
     </div>
     <div class="footer-tags">
       <a href="https://www.linkedin.com/in/gabriel-pereira-703006391" target="_blank"><span class="tag">Gabriel Pereira</span></a>
@@ -1253,10 +1376,153 @@
       <a href="https://www.linkedin.com/in/daniel-cardoso-e-silva-8ba86a301/" target="_blank"><span class="tag">Daniel Cardoso</span></a>
       <a href="https://www.linkedin.com/in/lucas-tirado-3b9041338/" target="_blank"><span class="tag">Lucas Tirado</span></a>
     </div>
-    <p class="footer-note">
-      IFSP SJBV · 2025 · Todos os direitos reservados
-    </p>
   </footer>
+
+  <!-- IMAGE MODAL -->
+  <div id="image-modal" class="modal">
+    <button class="modal-close" aria-label="Fechar" onclick="closeModal()">&times;</button>
+    <button class="modal-prev" aria-label="Anterior" onclick="changeImage(-1)">&#10094;</button>
+
+    <div class="modal-body">
+      <img class="modal-content" id="modal-img" src="" alt="Imagem ampliada">
+      <div id="modal-caption"></div>
+    </div>
+
+    <button class="modal-next" aria-label="Próxima" onclick="changeImage(1)">&#10095;</button>
+  </div>
+
+  <script>
+    // ==========================================
+    // MODAL CAROUSEL LOGIC
+    // ==========================================
+
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalCaption = document.getElementById("modal-caption");
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
+
+    let currentImages = [];
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function initCarousel() {
+      const galleries = [
+        document.querySelector('.desc-visual'),
+        document.querySelector('.masonry')
+      ];
+
+      galleries.forEach(gallery => {
+        if (!gallery) return;
+        const items = gallery.querySelectorAll('.img-placeholder, .masonry-item');
+
+        items.forEach((item) => {
+          item.addEventListener('click', (e) => {
+            const img = item.querySelector('img');
+            if (!img || !img.src || img.src.trim() === '') return;
+            e.preventDefault();
+
+            const validItems = Array.from(items).filter(i => {
+              const image = i.querySelector('img');
+              return image && image.src && image.src.trim() !== '';
+            });
+
+            currentImages = validItems.map(i => ({
+              src: i.querySelector('img').src,
+              caption: i.querySelector('img').alt || ''
+            }));
+
+            currentIndex = validItems.indexOf(item);
+
+            if (currentIndex !== -1) {
+              showModal();
+            }
+          });
+        });
+      });
+    }
+
+    function showModal() {
+      modal.classList.add('active');
+      triggerImageAnimation();
+      updateModalContent();
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeModal = function () {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      setTimeout(() => {
+        modalImg.src = '';
+      }, 300);
+    }
+
+    window.changeImage = function (step) {
+      if (currentImages.length <= 1) return;
+      currentIndex += step;
+
+      if (currentIndex >= currentImages.length) currentIndex = 0;
+      if (currentIndex < 0) currentIndex = currentImages.length - 1;
+
+      triggerImageAnimation();
+      updateModalContent();
+    }
+
+    function triggerImageAnimation() {
+      modalImg.style.animation = 'none';
+      void modalImg.offsetWidth;
+      modalImg.style.animation = 'imageTransition 0.3s ease-out forwards';
+    }
+
+    function updateModalContent() {
+      const imgData = currentImages[currentIndex];
+      modalImg.src = imgData.src;
+      modalCaption.innerHTML = imgData.caption;
+
+      if (currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
+    }
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal || e.target.classList.contains('modal-body')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') changeImage(1);
+      if (e.key === 'ArrowLeft') changeImage(-1);
+    });
+
+    modal.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        changeImage(1);
+      }
+      if (touchEndX > touchStartX + swipeThreshold) {
+        changeImage(-1);
+      }
+    }
+
+    initCarousel();
+  </script>
 </body>
 
 </html>

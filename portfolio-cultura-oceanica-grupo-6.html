@@ -87,10 +87,11 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 8rem 4rem 4rem;
+      padding: 7rem 4rem 0rem;
       position: relative;
       overflow: hidden;
     }
@@ -111,10 +112,10 @@
     /* animated waves */
     .waves-bg {
       position: absolute;
-      bottom: 0;
+      bottom: -1.5rem;
       left: 0;
       width: 100%;
-      height: 220px;
+      height: 180px;
       overflow: hidden;
     }
 
@@ -269,7 +270,7 @@
 
     /* ── SECTIONS ── */
     section {
-      padding: 6rem 4rem;
+      padding: 2rem 4rem;
     }
 
     .section-label {
@@ -380,8 +381,8 @@
 
     .desc-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 5rem;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 6rem;
       align-items: center;
     }
 
@@ -649,31 +650,30 @@
     }
 
     .masonry {
-      columns: 3;
-      column-gap: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
     }
 
     .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 1.2rem;
-      border-radius: 10px;
+      border-radius: 14px;
       overflow: hidden;
       background: rgba(0, 180, 216, 0.08);
       border: 1px dashed rgba(0, 180, 216, 0.25);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
-      padding: 1rem;
+      padding: 0;
       text-align: center;
-      transition: all 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background 0.3s;
       cursor: pointer;
-      height: 220px;
+      min-height: 220px;
     }
 
     .masonry-item img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
       display: block;
     }
@@ -1092,25 +1092,25 @@
         <p class="section-label">01 — Objetivo</p>
         <h2 class="section-title">Objetivo do Projeto</h2>
         <p>
-          Este trabalho tem como objetivo aplicar os princípios da
-          <strong>cultura oceânica</strong> na produção de resenhas críticas,
-          utilizando textos científicos e de divulgação como base para
-          análise. A proposta envolve compreender conceitos fundamentais sobre
-          o oceano e transformá-los em produções escritas estruturadas, que
-          sintetizem ideias, identifiquem argumentos e avaliem conteúdos de
-          forma organizada.
-        </p>
-        <p>
-          Paralelamente, buscou-se desenvolver habilidades de
-          <strong>pensamento crítico</strong> e comunicação escrita,
-          incentivando a construção de posicionamentos fundamentados sobre a
-          relação entre sociedade e ambiente marinho. O projeto também promove
-          o uso consciente de ferramentas de
-          <strong>inteligência artificial</strong>, reconhecendo seu papel no
-          contexto educacional atual e orientando sua utilização ética como
-          apoio à revisão, organização e aprimoramento textual, sem
-          comprometer a autoria e o processo de aprendizagem.
-        </p>
+            Este trabalho tem como objetivo aplicar os princípios da
+            <strong>cultura oceânica</strong> na produção de resenhas críticas,
+            utilizando textos científicos e de divulgação como base para
+            análise. A proposta envolve compreender conceitos fundamentais sobre
+            o oceano e transformá-los em produções escritas estruturadas, que
+            sintetizem ideias, identifiquem argumentos e avaliem conteúdos de
+            forma organizada.
+          </p>
+          <p>
+            Paralelamente, busca-se desenvolver habilidades de
+            <strong>pensamento crítico</strong> e comunicação escrita,
+            incentivando a construção de posicionamentos fundamentados sobre a
+            relação entre sociedade e ambiente marinho. O projeto também promove
+            o uso consciente de ferramentas de
+            <strong>inteligência artificial</strong>, reconhecendo seu papel no
+            contexto educacional atual e orientando sua utilização ética como
+            apoio à revisão, organização e aprimoramento textual, sem
+            comprometer a autoria e o processo de aprendizagem.
+          </p>
       </div>
       <div class="objetivo-card">
         <h3>🎯 Meta Central do Projeto</h3>
@@ -1322,14 +1322,6 @@
       </div>
       <div class="masonry-item">
         <img src="images/resenha.jpeg" alt="Logo do projeto" />
-      </div>
-      <div class="masonry-item">
-        <div class="ph-icon">📚</div>
-        <p>Exposição das obras<br /><small>Mostra na escola</small></p>
-      </div>
-      <div class="masonry-item">
-        <div class="ph-icon">🐠</div>
-        <p>Seção interna da resenha<br /><small>Análise submarina</small></p>
       </div>
     </div>
   </section>
